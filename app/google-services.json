@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "173073960836",
+    "project_id": "hjsaurav",
+    "storage_bucket": "hjsaurav.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173073960836:android:376b140cf63a75588517d1",
+        "android_client_info": {
+          "package_name": "com.example.hj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173073960836-kv5er3gpi0jts30nq8dfk8iclrccctin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUc324IJId_PKtxzo7IvlSjJtDi5Y0mu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173073960836-kv5er3gpi0jts30nq8dfk8iclrccctin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
