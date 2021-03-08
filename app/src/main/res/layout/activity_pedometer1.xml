@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/b5"
     tools:context=".pedometer1">
 
     <LinearLayout
@@ -13,137 +14,101 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="103dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="37dp"
                 android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="27dp"
-                android:src="@drawable/back" />
+                android:layout_marginTop="29dp"
+                android:src="@drawable/back"
+                android:onClick="back"/>
 
             <ImageView
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
+                android:layout_width="136dp"
+                android:layout_height="141dp"
                 android:layout_marginLeft="92dp"
                 android:src="@drawable/logo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/stepscount"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/stepsdetect"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="23dp"
+    android:text="Total: "
+    android:textSize="39dp"
+    android:textColor="@color/black"
+    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="35dp"
+            android:id="@+id/textView"
+            android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+android:text=" Steps"
+                android:textSize="30dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginRight="23dp"
-            android:text="PEDOMETER Lets You to Know How much Steps ypu Walked_"
-
-            android:textColor="#0B88EC"
-            android:textSize="19sp" />
-
+            android:text="Current:"
+            android:gravity="center"
+            android:layout_marginTop="29dp"
+            android:textSize="39dp"
+            android:textColor="@color/black"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:text="0"
+    android:id="@+id/textView2"
+    android:textSize="99dp"
+    android:gravity="center"
+    android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="steps"
+            android:gravity="center"
+            android:textSize="34dp"
+            android:textColor="@color/black"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:orientation="horizontal">
+           android:orientation="horizontal"
+            android:layout_marginTop="29dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="194dp"
+                android:layout_height="170dp"
+                android:src="@drawable/savebutton"
+                android:id="@+id/save"/>
+            <ImageView
+                android:layout_width="194dp"
+                android:layout_height="170dp"
+                android:src="@drawable/recordbutton"
                 android:layout_marginLeft="23dp"
-                android:text="Steps Counted by Pedometer: "
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="step counter"
-                android:textSize="16sp" />
+                android:onClick="records"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="23dp"
-                android:text="Steps Detected: "
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="step detector"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="43dp"
-            android:text="save" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="32dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Total Steps: "
-
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/stepscount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="32dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Current No. of Steps: "
-
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/stepsdetect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="43dp"
-            android:text="record"
-            android:onClick="record"/>
-
-
-
     </LinearLayout>
-
 </ScrollView>

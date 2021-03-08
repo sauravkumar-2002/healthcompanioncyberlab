@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class pedometer1 extends AppCompatActivity implements SensorEventListener {
@@ -22,6 +23,7 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
     int stepcount=0,stepdetect=0;
     Button button;
     private TextView textview,textview1;
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,9 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
         textviewstepcounter = (TextView) findViewById(R.id.textView);
         textviewstepdetector = (TextView) findViewById(R.id.textView2);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        textview=(TextView)findViewById(R.id.stepscount);
+       textview=(TextView)findViewById(R.id.stepscount);
         textview1=(TextView)findViewById(R.id.stepsdetect);
+        img=(ImageView)findViewById(R.id.save);
         button=(Button)findViewById(R.id.button);
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null) {
             mStepCounter=sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -50,7 +53,7 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
             textviewstepcounter.setText("detector sensor not present");
             isdetectorsensorpresent=false;
         }
-        button.setOnClickListener(new View.OnClickListener() {
+        img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String msg=textviewstepdetector.getText().toString();
@@ -114,6 +117,16 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
 
     public void record(View view) {
         Intent intent =new Intent(this,recordpedometer.class);
+        startActivity(intent);
+    }
+
+    public void back(View view) {
+        Intent intent=new Intent(this,dashboard.class);
+        startActivity(intent);
+    }
+
+    public void records(View view) {
+        Intent intent=new Intent(this,recordpedometer.class);
         startActivity(intent);
     }
 }
