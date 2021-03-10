@@ -38,19 +38,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         holder.textViewHead.setText(listitem.getHead());
         holder.textViewDesc.setText(listitem.getDesc());
+        holder.textViewDateandtime.setText(listitem.getDatetime());
 
 
     }
 
     @Override
     public int getItemCount() {
-        return listitems.size();
+        return 100;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textViewHead;
         public TextView textViewDesc;
+        public TextView textViewDateandtime;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -58,6 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
             textViewHead = (TextView)itemView.findViewById(R.id.head);
             textViewDesc = (TextView)itemView.findViewById(R.id.descr);
+            textViewDateandtime = (TextView)itemView.findViewById(R.id.dateandtime1);
 
         }
     }
