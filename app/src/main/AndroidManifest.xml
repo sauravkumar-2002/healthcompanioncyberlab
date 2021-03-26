@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hj">
-        <activity android:name=".recordpedometer"></activity>
+        <activity android:name=".exercise1"></activity>
+        <activity android:name=".recordpedometer" />
         <activity android:name=".pedometer1" />
         <activity android:name=".login" />
         <activity android:name=".dashboard" />
