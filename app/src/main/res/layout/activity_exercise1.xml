@@ -7,23 +7,86 @@
     tools:context=".exercise1">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/date2"
-    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="37dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="29dp"
+            android:src="@drawable/back"
+            android:onClick="back"/>
+
+        <ImageView
+            android:layout_width="136dp"
+            android:layout_height="141dp"
+            android:layout_marginLeft="92dp"
+            android:src="@drawable/logo" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32dp"
+            android:text="Starting Time"
+            android:id="@+id/startime1"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date2"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:text="Continuing...."
+        android:id="@+id/endtime1"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="start"
         android:layout_marginTop="23dp"
         android:id="@+id/bt_add"/>
-
-    <ListView
-        android:id="@+id/list_view"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="589dp" />
+        android:layout_height="wrap_content"
+        android:text="record"
+        android:layout_marginTop="23dp"
+        android:id="@+id/bt_record"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="refresh"
+        android:layout_marginTop="23dp"
+        android:id="@+id/bt_refresh"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
 </LinearLayout>
 </ScrollView>
