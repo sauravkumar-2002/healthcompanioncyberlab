@@ -37,7 +37,7 @@ onCreate(sqLiteDatabase);
         if (res==-1)
         return "failed";
         else
-            return "successfully inserted";
+            return "Exercise going on!!";
     }
     public Cursor readalldata(){
         SQLiteDatabase db=this.getWritableDatabase();

@@ -26,10 +26,10 @@ ArrayList<model> dataholder;
 
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
-
+        holder.ddate.setText(dataholder.get(position).getDate());
 holder.dstarttime.setText(dataholder.get(position).getStarttime());
 holder.dendtime.setText(dataholder.get(position).getEndtime());
-        holder.ddate.setText(dataholder.get(position).getDate());
+
     }
 
     @Override
@@ -43,8 +43,9 @@ holder.dendtime.setText(dataholder.get(position).getEndtime());
        public TextView dendtime;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
-            dstarttime=(TextView)itemView.findViewById(R.id.displaystarttime);
             ddate=(TextView)itemView.findViewById(R.id.displaydate);
+            dstarttime=(TextView)itemView.findViewById(R.id.displaystarttime);
+
             dendtime=(TextView)itemView.findViewById(R.id.displayendtime);
         }
     }

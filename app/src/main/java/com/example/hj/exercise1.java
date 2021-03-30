@@ -24,13 +24,14 @@ public class exercise1 extends AppCompatActivity {
 EditText date;
 TextView endtime;
 TextView starttime;
+TextView doexercise;
 Button button;
 Button button1;
-//Button refreshh;
+Button refreshh;
 
     Calendar calendar;
-    SimpleDateFormat simpleDateFormat;
-    String datee;
+    SimpleDateFormat simpleDateFormat,simpleDateFormat1,simpleDateFormat2;
+    String datee,enddate,startdate;
 
 
 
@@ -47,11 +48,26 @@ Button button1;
         setContentView(R.layout.activity_exercise1);
         date = (EditText) findViewById(R.id.date2);
         endtime = (TextView) findViewById(R.id.endtime1);
-
+doexercise=(TextView)findViewById(R.id.displayex);
         starttime = (TextView) findViewById(R.id.startime1);
       //  olddataholder=new ArrayList<>();
         //olddataholder.addAll(dataholder);
-       // refreshh=(Button)findViewById(R.id.bt_refresh);
+      refreshh=(Button)findViewById(R.id.bt_refresh);
+refreshh.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        doexercise.setText("Do Exercise");
+        calendar = Calendar.getInstance();
+        //"EEEE,dd-MM-yyyy hh:mm:ss a"
+        simpleDateFormat = new SimpleDateFormat("'  Ending Time: 'HH:mm:ss ");
+        enddate = simpleDateFormat.format(calendar.getTime());
+    endtime.setText(enddate);
+        processinsert(date.getText().toString(),starttime.getText().toString(),endtime.getText().toString());
+        refreshh.setVisibility(View.GONE);
+        button.setVisibility(View.VISIBLE);
+        Toast.makeText(getApplicationContext(),"Time Recorded You can see Your Records",Toast.LENGTH_SHORT).show();
+    }
+});
 
 
 
@@ -71,16 +87,25 @@ Button button1;
         recyclerView1.setAdapter(adapter1);*/
 
 button1=(Button)findViewById(R.id.bt_record);
+
         button = (Button) findViewById(R.id.bt_add);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                doexercise.setText("Exercise is Going On");
                 calendar = Calendar.getInstance();
-                simpleDateFormat = new SimpleDateFormat("EEEE,dd-MM-yyyy hh:mm:ss a");
-                datee = simpleDateFormat.format(calendar.getTime());
-                starttime.setText(datee);
-                processinsert(date.getText().toString(),starttime.getText().toString(),endtime.getText().toString());
+                //"EEEE,dd-MM-yyyy hh:mm:ss a"
+                simpleDateFormat2=new SimpleDateFormat("'  'dd.MM.yyyy");
+                simpleDateFormat = new SimpleDateFormat("'  Starting Time: 'HH:mm:ss ");
 
+                datee = simpleDateFormat2.format(calendar.getTime());
+                startdate = simpleDateFormat.format(calendar.getTime());
+                date.setText(datee);
+                starttime.setText(startdate);
+
+button.setVisibility(View.GONE);
+refreshh.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(),"You Have Started Your Exercise",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -94,6 +119,8 @@ button1.setOnClickListener(new View.OnClickListener() {
 });
     }
 
+
+
     private void processinsert(String d, String s, String e) {
         String res=new dbmanager(this).addrecord(d,s,e);
         date.setText("");
@@ -103,5 +130,7 @@ button1.setOnClickListener(new View.OnClickListener() {
     }
 
     public void back(View view) {
+        Intent intent=new Intent(getApplicationContext(),dashboard.class);
+        startActivity(intent);
     }
 }

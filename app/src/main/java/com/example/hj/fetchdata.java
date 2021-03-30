@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class fetchdata extends AppCompatActivity {
         dataholder = new ArrayList<>();
         Cursor cursor=new dbmanager(this).readalldata();
         while (cursor.moveToNext()){
-            model obj=new model(cursor.getString(2),cursor.getString(3),cursor.getString(1));
+            model obj=new model(cursor.getString(1),cursor.getString(2),cursor.getString(3));
             dataholder.add(obj);
         }
         adapter1= new myadapterex(dataholder);
@@ -34,5 +35,7 @@ public class fetchdata extends AppCompatActivity {
     }
 
     public void back(View view) {
+        Intent intent=new Intent(getApplicationContext(),exercise1.class);
+        startActivity(intent);
     }
 }

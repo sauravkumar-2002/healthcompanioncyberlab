@@ -3,21 +3,13 @@
 public class model {
     String starttime,date,endtime;
 
-    public model(String starttime , String date, String endtime) {
-        this.starttime = starttime;
+    public model(String date , String starttime, String endtime) {
         this.date = date;
+        this.starttime = starttime;
+
         this.endtime = endtime;
     }
 
-
-
-    public String getStarttime() {
-        return starttime;
-    }
-
-    public void setStarttime(String starttime) {
-        this.starttime = starttime;
-    }
 
     public String getDate() {
         return date;
@@ -26,6 +18,15 @@ public class model {
     public void setDate(String date) {
         this.date = date;
     }
+    public String getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
+    }
+
+
 
 
 

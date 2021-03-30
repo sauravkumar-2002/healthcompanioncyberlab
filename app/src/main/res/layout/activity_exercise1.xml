@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".exercise1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,15 +40,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="32dp"
+            android:textSize="0dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:text="Starting Time"
             android:id="@+id/startime1"/>
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="0dp"
             android:id="@+id/date2"
             />
 
@@ -53,40 +60,51 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32dp"
-        android:text="Continuing...."
+        android:textSize="0dp"
+        android:text="counting..."
         android:id="@+id/endtime1"/>
-    <Button
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start"
-        android:layout_marginTop="23dp"
-        android:id="@+id/bt_add"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="record"
-        android:layout_marginTop="23dp"
-        android:id="@+id/bt_record"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="refresh"
-        android:layout_marginTop="23dp"
-        android:id="@+id/bt_refresh"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-
-
+        android:textSize="32dp"
+        android:layout_gravity="center"
+        android:text="Do Exercise"
+        android:id="@+id/displayex"/>
 </LinearLayout>
+        <Button
+            android:layout_width="228dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/buttondesign"
+            android:text="end"
+            android:layout_marginTop="256dp"
+            android:layout_marginLeft="92dp"
+            android:id="@+id/bt_refresh"/>
+
+        <Button
+
+            android:id="@+id/bt_add"
+            android:layout_width="228dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="256dp"
+android:layout_marginLeft="92dp"
+            android:background="@drawable/buttondesign"
+            android:text="start" />
+
+        <Button
+        android:layout_width="228dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/buttondesign"
+        android:text="records"
+        android:layout_marginTop="345dp"
+            android:layout_marginLeft="89dp"
+        android:id="@+id/bt_record"/>
+
+
+
+    </RelativeLayout>
 </ScrollView>
