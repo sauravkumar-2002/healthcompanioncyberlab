@@ -23,4 +23,9 @@ public class dashboard extends AppCompatActivity {
         Intent intent=new Intent(this,exercise1.class);
         startActivity(intent);
     }
+
+    public void water(View view) {
+        Intent intent=new Intent(this,water1.class);
+        startActivity(intent);
+    }
 }
