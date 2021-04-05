@@ -11,10 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class watertime extends AppCompatActivity {
 Button buttontime;
+TimePicker timepiker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +26,27 @@ Button buttontime;
         setContentView(R.layout.activity_watertime);
         createNotificationchannel();
         buttontime=(Button)findViewById(R.id.settime);
+        timepiker=(TimePicker)findViewById(R.id.timepicker);
         buttontime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int hour=timepiker.getCurrentHour();
+                int minute=timepiker.getCurrentMinute();
+                Calendar startTime=Calendar.getInstance();
+                startTime.set(Calendar.HOUR_OF_DAY,hour);
+                startTime.set(Calendar.MINUTE,minute);
+                startTime.set(Calendar.SECOND,0);
                 Toast.makeText(watertime.this, "setted", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(watertime.this,ReminderBroadcast.class);
                 PendingIntent pendingIntent=PendingIntent.getBroadcast(watertime.this,0,intent,0);
 
                 AlarmManager alarmManager=(AlarmManager) getSystemService(ALARM_SERVICE);
-                long timeatbuttonclick=System.currentTimeMillis();
-                long tensecondsinmillis=1000*10;
-                alarmManager.set(AlarmManager.RTC_WAKEUP,timeatbuttonclick+tensecondsinmillis,pendingIntent);
+                long alarmsettime=startTime.getTimeInMillis();
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,alarmsettime,AlarmManager.INTERVAL_DAY,pendingIntent);
+                //alarmManager.set(AlarmManager.RTC_WAKEUP,alarmsettime,pendingIntent);
+                //long timeatbuttonclick=System.currentTimeMillis();
+                //long tensecondsinmillis=1000*10;
+                //alarmManager.set(AlarmManager.RTC_WAKEUP,timeatbuttonclick+tensecondsinmillis,pendingIntent);
         }});
 
 
@@ -48,5 +62,10 @@ Button buttontime;
             NotificationManager notificationManager=getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    public void back(View view) {
+        Intent intent=new Intent(getApplicationContext(),water1.class);
+        startActivity(intent);
     }
 }
