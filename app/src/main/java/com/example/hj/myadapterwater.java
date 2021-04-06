@@ -16,8 +16,6 @@ public class myadapterwater extends RecyclerView.Adapter<myadapterwater.myviewho
     public myadapterwater(ArrayList<modelwater> dataholderwater) {
         this.dataholderwater = dataholderwater;
     }
-
-
     @NonNull
     @Override
     public myadapterwater.myviewholderwater onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

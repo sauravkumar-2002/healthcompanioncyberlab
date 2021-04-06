@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login extends AppCompatActivity {
     private TextView newuser1;
     private EditText password1, emailid1;
+    CheckBox remember;
 
     private FirebaseAuth mAuth;
 
@@ -37,6 +41,35 @@ public class login extends AppCompatActivity {
      newuser1 = (TextView) findViewById(R.id.newuser);
        newuser1.setPaintFlags(newuser1.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
        password1 = (EditText) findViewById(R.id.passwordbox);
+       remember=(CheckBox)findViewById(R.id.checkBoxrememberme);
+
+
+
+
+
+       SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+       String checkbox=preferences.getString("remember","");
+       if(checkbox.equals("true")){
+           Intent intent=new Intent(getApplicationContext(),dashboard.class);
+           startActivity(intent);
+           finish();
+       }
+       remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+               if (compoundButton.isChecked()) {
+                   SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                   SharedPreferences.Editor editor = preferences.edit();
+                   editor.putString("remember", "true");
+                   editor.apply();
+               } else if(!compoundButton.isChecked()){
+                   SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                   SharedPreferences.Editor editor = preferences.edit();
+                   editor.putString("remember", "false");
+                   editor.apply();
+               }
+           }
+       });
        emailid1 = (EditText) findViewById(R.id.emailbox);
        mAuth = FirebaseAuth.getInstance();
    }
@@ -113,6 +146,7 @@ public class login extends AppCompatActivity {
                    Toast.makeText(getApplicationContext(), "login succesfully", Toast.LENGTH_SHORT).show();
                    Intent intent = new Intent(getApplicationContext(), dashboard.class);
                    startActivity(intent);
+                   finish();
 
                } else {
 

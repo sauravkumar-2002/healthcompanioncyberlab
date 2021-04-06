@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hj">
-        <activity android:name=".yesno"></activity>
-        <activity android:name=".watertime"></activity>
+        <activity android:name=".snoozestop"></activity>
+        <activity android:name=".sleep1" />
+        <activity android:name=".yesno" />
+        <activity android:name=".watertime" />
         <activity android:name=".water1" />
         <activity android:name=".fetchdata" />
         <activity android:name=".exercise1" />
@@ -32,6 +34,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <receiver android:name=".ReminderBroadcast" />
+        <receiver android:name=".ReminderBroadcastsleep" />
     </application>
 
 </manifest>

@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".yesno">
+    tools:context=".snoozestop">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <ImageView
-        android:layout_width="136dp"
-        android:layout_height="141dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo" />
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="29dp"
-    android:text="Are You Willing To Take Water Now ??"
-    android:textSize="29dp"
-    android:layout_gravity="center"
-    android:gravity="center"/>
+        <ImageView
+            android:layout_width="136dp"
+            android:layout_height="141dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="Wake Up ??"
+            android:textSize="29dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
     <TextView
-        android:id="@+id/waterglass"
+        android:id="@+id/statussleep1"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="45dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Starting Time"
@@ -40,9 +40,9 @@
         app:layout_constraintVertical_bias="0.519" />
 
     <EditText
-        android:id="@+id/datewater"
+        android:id="@+id/datesleep1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="54dp"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/startime1"
@@ -57,22 +57,22 @@
         android:layout_marginTop="59dp">
 
         <Button
-            android:id="@+id/yeswater"
+            android:id="@+id/snooze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="59dp"
 
-            android:text="yes"
+            android:text="snooze"
             />
 
         <Button
-            android:id="@+id/nowater"
+            android:id="@+id/stopsleep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="59dp"
+            android:layout_marginRight="45dp"
             android:layout_marginLeft="121dp"
 
-            android:text="no" />
+            android:text=" stop " />
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
@@ -80,13 +80,13 @@
         android:layout_gravity="center"
         android:layout_marginTop="54dp"
         android:text="go to records"
-        android:id="@+id/gotorecordwater"/>
+        android:id="@+id/gotorecordsleep"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="32dp"
-        android:text="  set new time "
-        android:id="@+id/setnewtime"/>
+        android:text="set new alarm"
+        android:id="@+id/setnewalarmsleep"/>
 </LinearLayout>
 </ScrollView>

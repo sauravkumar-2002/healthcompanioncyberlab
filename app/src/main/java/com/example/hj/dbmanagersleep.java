@@ -8,39 +8,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class dbmanager extends SQLiteOpenHelper {
-    private static final String dbname="dbcontact";
-    public dbmanager(@Nullable Context context) { super(context, dbname,null, 1);
+public class dbmanagersleep extends SQLiteOpenHelper {
+    private static final String dbnamesleep="dbcontactsleep1";
+
+    public dbmanagersleep(@Nullable Context context) { super(context, dbnamesleep, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String qry="create table tbl_contact (id integer primary key autoincrement, date text,starttime text,endtime text)";
-        sqLiteDatabase.execSQL(qry);
-
+        String qrysleep="create table tbl_contact1 (id integer primary key autoincrement, datesleep text, statussleep text)";
+        sqLiteDatabase.execSQL(qrysleep);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-String qry="DROP TABLE IF EXISTS tbl_contact";
-sqLiteDatabase.execSQL(qry);
-onCreate(sqLiteDatabase);
+        String qry="DROP TABLE IF EXISTS tbl_contact1";
+        sqLiteDatabase.execSQL(qry);
+        onCreate(sqLiteDatabase);
     }
-    public String addrecord(String date,String starttime,String endtime){
+    public String addrecord(String datesleep,String statussleep){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
-        cv.put("date",date);
-        cv.put("starttime",starttime);
-        cv.put("endtime",endtime);
-        float res=db.insert("tbl_contact",null,cv);
+        cv.put("datesleep",datesleep);
+        cv.put("statussleep",statussleep);
+
+        float res=db.insert("tbl_contact1",null,cv);
         if (res==-1)
-        return "failed";
+            return "failed";
         else
             return "Exercise going on!!";
     }
     public Cursor readalldata(){
         SQLiteDatabase db=this.getWritableDatabase();
-        String qry="select*from tbl_contact order by id desc";
+        String qry="select*from tbl_contact1 order by id desc";
         Cursor cursor=db.rawQuery(qry,null);
         return cursor;
     }
