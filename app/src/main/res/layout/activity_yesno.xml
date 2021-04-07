@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/waterglass"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Starting Time"
@@ -41,8 +41,8 @@
 
     <EditText
         android:id="@+id/datewater"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/startime1"

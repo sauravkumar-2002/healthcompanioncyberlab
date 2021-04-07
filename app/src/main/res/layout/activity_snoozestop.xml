@@ -26,8 +26,8 @@
             android:gravity="center"/>
     <TextView
         android:id="@+id/statussleep1"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Starting Time"
@@ -41,8 +41,8 @@
 
     <EditText
         android:id="@+id/datesleep1"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/startime1"
@@ -55,16 +55,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="59dp">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/snooze"
+    <Button
+        android:id="@+id/snooze2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+
+        android:text="snooze"
+        />
+    <Button
+        android:id="@+id/snooze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="59dp"
+
+        android:text="snooze"
+        />
+</RelativeLayout>
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="59dp"
-
-            android:text="snooze"
-            />
-
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/stopsleep"
             android:layout_width="wrap_content"
@@ -72,8 +86,18 @@
             android:layout_marginRight="45dp"
             android:layout_marginLeft="121dp"
 
-            android:text=" stop " />
+            android:text="stop " />
+            <Button
+                android:id="@+id/stopsleep2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="45dp"
+                android:layout_marginLeft="121dp"
+
+                android:text="stop " />
+        </RelativeLayout>
     </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -27,7 +27,7 @@ import java.util.Date;
 public class sleep1 extends AppCompatActivity {
   // TextView currentsleeptime,calculatedtime;
    // EditText enterher;
-    Button addsleep,startalarmx;
+    Button addsleep,btncancelalarm;
     String result;
     RecyclerView recyclerViewsleep;
     ArrayList<modelsleep> dataholdersleep;
@@ -35,7 +35,8 @@ public class sleep1 extends AppCompatActivity {
     RecyclerView.Adapter adaptersleep;
     Calendar calendar2,calendar3;
     TimePicker timePicker;
-
+    AlarmManager alarmManager1;
+    PendingIntent pendingIntent1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +66,10 @@ public class sleep1 extends AppCompatActivity {
        createNotificationchannel();
 
         addsleep=(Button)findViewById(R.id.buttonsavehr1);
-
-
+btncancelalarm=(Button)findViewById(R.id.buttoncancel);
+        alarmManager1=(AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent=new Intent(sleep1.this,ReminderBroadcastsleep.class);
+        pendingIntent1=PendingIntent.getBroadcast(sleep1.this,0,intent,0);
         addsleep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,14 +81,23 @@ public class sleep1 extends AppCompatActivity {
                 startTime1.set(Calendar.MINUTE,minute);
                 startTime1.set(Calendar.SECOND,0);
                 Toast.makeText(sleep1.this, " Alarm setted", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(sleep1.this,ReminderBroadcastsleep.class);
-                PendingIntent pendingIntent1=PendingIntent.getBroadcast(sleep1.this,0,intent,0);
 
-                AlarmManager alarmManager1=(AlarmManager) getSystemService(ALARM_SERVICE);
+
+
                 long alarmsettime1=startTime1.getTimeInMillis();
                 alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP,alarmsettime1,AlarmManager.INTERVAL_DAY,pendingIntent1);
+                addsleep.setVisibility(View.GONE);
+                btncancelalarm.setVisibility(View.VISIBLE);
             }  });
-
+        btncancelalarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+alarmManager1.cancel(pendingIntent1);
+                Toast.makeText(sleep1.this, " Alarm Cancelled", Toast.LENGTH_SHORT).show();
+btncancelalarm.setVisibility(View.GONE);
+addsleep.setVisibility(View.VISIBLE);
+            }
+        });
 
 
 

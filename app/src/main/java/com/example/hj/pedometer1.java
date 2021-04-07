@@ -73,7 +73,10 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
                 calendar = Calendar.getInstance();
                 simpleDateFormat = new SimpleDateFormat("EEEE,dd-MM-yyyy hh:mm:ss a");
                 Date = simpleDateFormat.format(calendar.getTime());
-                String msg = textviewstepdetector.getText().toString();
+
+
+
+               String msg = textviewstepdetector.getText().toString();
                 String msg1 = textviewstepcounter.getText().toString();
                 String msg2 = dateandtime.getText().toString();
 
@@ -147,16 +150,17 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
     }
 
     public void records(View view) {
-        saurav = textview.getText().toString();
+      /*  saurav = textview.getText().toString();
         saurav1 = textview1.getText().toString();
         saurav2 = dateandtime.getText().toString();
         Intent intent = new Intent(this, recordpedometer.class);
         intent.putExtra("saurav", saurav);
         intent.putExtra("saurav1", saurav1);
         intent.putExtra("saurav2", saurav2);
-
-
         startActivity(intent);
+       */
+Intent intent = new Intent(this, recordpedometer.class);
+startActivity(intent);
 
     }
 
