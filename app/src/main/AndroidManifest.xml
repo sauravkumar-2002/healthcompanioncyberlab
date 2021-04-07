@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hj">
-        <activity android:name=".pedometerelistactivity"></activity>
         <activity android:name=".snoozestop" />
         <activity android:name=".sleep1" />
         <activity android:name=".yesno" />
@@ -37,7 +36,6 @@
         <receiver android:name=".ReminderBroadcast" />
         <receiver android:name=".ReminderBroadcastsleep" />
 
-        <service android:name=".StepsService" />
     </application>
 
 </manifest>

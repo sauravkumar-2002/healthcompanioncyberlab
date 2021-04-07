@@ -37,7 +37,7 @@ public class dbmanagerwater extends SQLiteOpenHelper {
         if (res==-1)
             return "failed";
         else
-            return "Exercise going on!!";
+            return "Wait!!";
     }
     public Cursor readalldata(){
         SQLiteDatabase db=this.getWritableDatabase();

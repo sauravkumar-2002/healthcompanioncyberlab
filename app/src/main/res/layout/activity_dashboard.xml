@@ -27,7 +27,7 @@
         <ImageView
             android:layout_width="66dp"
             android:layout_height="84dp"
-            android:src="@drawable/menu1"
+            android:src="@drawable/logout"
             android:onClick="logout"/>
 
         <ImageView

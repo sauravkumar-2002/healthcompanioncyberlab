@@ -79,14 +79,6 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/stopsleep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="45dp"
-            android:layout_marginLeft="121dp"
-
-            android:text="stop " />
             <Button
                 android:id="@+id/stopsleep2"
                 android:layout_width="wrap_content"
@@ -95,6 +87,15 @@
                 android:layout_marginLeft="121dp"
 
                 android:text="stop " />
+        <Button
+            android:id="@+id/stopsleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="45dp"
+            android:layout_marginLeft="121dp"
+
+            android:text="stop " />
+
         </RelativeLayout>
     </LinearLayout>
 
@@ -112,5 +113,14 @@
         android:layout_marginTop="32dp"
         android:text="set new alarm"
         android:id="@+id/setnewalarmsleep"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ringtone22"
+        android:layout_marginTop="29dp"
+        android:text="  "
+        android:textSize="29dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
 </LinearLayout>
 </ScrollView>

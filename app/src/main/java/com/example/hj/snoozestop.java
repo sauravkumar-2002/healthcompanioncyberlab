@@ -17,7 +17,7 @@ import java.util.Calendar;
 
 public class snoozestop extends AppCompatActivity {
 Button snoozesleep,stopsleep11,gotosleep1,setalarmnew,snoozesleep2,stopsleep22;
-TextView statussleep;
+TextView statussleep,stopring;
 EditText datesleep;
     Calendar calendar1;
     SimpleDateFormat simpleDateFormatwater,simpledate1;
@@ -34,6 +34,7 @@ EditText datesleep;
         setalarmnew=(Button)findViewById(R.id.setnewalarmsleep);
         statussleep=(TextView)findViewById(R.id.statussleep1);
         datesleep=(EditText) findViewById(R.id.datesleep1);
+        stopring=(TextView)findViewById(R.id.ringtone22);
         gotosleep1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,10 +51,12 @@ EditText datesleep;
                 dateesleep = simpledate1.format(calendar1.getTime());
                 datesleep.setText(dateesleep);
                 statussleep.setText("perfect");
+
                 processinsert(datesleep.getText().toString(),statussleep.getText().toString());
               //  snoozesleep.setVisibility(View.GONE);
                // stopsleep11.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(),"You Have Turned off Your Alarm",Toast.LENGTH_SHORT).show();
+                stopring.setText("Remove app from background to stop the alarm tone");
 stopsleep11.setVisibility(View.GONE);
 snoozesleep.setVisibility(View.GONE);
 snoozesleep2.setVisibility(View.GONE);
@@ -72,6 +75,7 @@ stopsleep22.setVisibility(View.GONE);
                 stopsleep22.setVisibility(View.VISIBLE);
                 snoozesleep.setVisibility(View.GONE);
                 snoozesleep2.setVisibility(View.VISIBLE);
+                stopring.setText("Remove app from background to stop the alarm tone");
             }
         });
         snoozesleep2.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +107,7 @@ stopsleep22.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(),"You Have Turned off Your Alarm2",Toast.LENGTH_SHORT).show();
                 snoozesleep2.setVisibility(View.GONE);
                 stopsleep22.setVisibility(View.GONE);
+                stopring.setText("Remove app from background to stop the alarm tone");
             }
         });
 

@@ -24,8 +24,8 @@
             android:layout_marginBottom="4dp"
             android:src="@drawable/wave2"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+
+            />
 
         <ImageView
             android:id="@+id/imageView"

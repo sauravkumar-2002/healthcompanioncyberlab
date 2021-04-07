@@ -26,12 +26,12 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
     private SensorManager sensorManager;
     private Sensor mStepCounter, mStepDetector;
     private Boolean iscountersensorpresent, isdetectorsensorpresent;
-    int stepcount =0, stepdetect=0 ;
-    String saurav, saurav1,saurav2;
+    int stepcount = 0, stepdetect = 0;
+    String saurav, saurav1, saurav2;
     Calendar calendar;
-    SimpleDateFormat simpleDateFormat;
+    SimpleDateFormat simpleDateFormat1;
     Button button;
-    public TextView textview, textview1;
+    public TextView textviewstepcount, textview1stepdetect;
     String Date;
     ImageView img;
 
@@ -43,12 +43,11 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
         textviewstepcounter = (TextView) findViewById(R.id.textView);
         textviewstepdetector = (TextView) findViewById(R.id.textView2);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        textview = (TextView) findViewById(R.id.stepscount);
-        textview1 = (TextView) findViewById(R.id.stepsdetect);
+        textviewstepcount = (TextView) findViewById(R.id.stepscount);
+        textview1stepdetect = (TextView) findViewById(R.id.stepsdetect);
         img = (ImageView) findViewById(R.id.save);
         button = (Button) findViewById(R.id.button);
         dateandtime = (TextView) findViewById(R.id.dateandtime);
-
 
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null) {
@@ -71,40 +70,32 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
             @Override
             public void onClick(View v) {
                 calendar = Calendar.getInstance();
-                simpleDateFormat = new SimpleDateFormat("EEEE,dd-MM-yyyy hh:mm:ss a");
-                Date = simpleDateFormat.format(calendar.getTime());
+                simpleDateFormat1 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss a");
+                Date = simpleDateFormat1.format(calendar.getTime());
 
 
-
-               String msg = textviewstepdetector.getText().toString();
-                String msg1 = textviewstepcounter.getText().toString();
-                String msg2 = dateandtime.getText().toString();
-
-
-                SharedPreferences shrd = getSharedPreferences("demo", MODE_PRIVATE);
-                SharedPreferences.Editor editor = shrd.edit();
-                editor.putString("str", msg);
-                editor.putString("str1", msg1);
-               editor.putString("str2", msg2);
-                editor.apply();
-                textview1.setText(msg);
-                textview.setText(msg1);
+                textview1stepdetect.setText(textviewstepdetector.getText().toString());
+                textviewstepcount.setText(textviewstepcounter.getText().toString());
                 dateandtime.setText(Date);
+                processinsert(dateandtime.getText().toString(), textviewstepcount.getText().toString(), textview1stepdetect.getText().toString());
+
+                Toast.makeText(getApplicationContext(), "Time Recorded You can see Your Records", Toast.LENGTH_SHORT).show();
+
+
+
 
 
             }
         });
-        SharedPreferences getShared = getSharedPreferences("demo", MODE_PRIVATE);
-        String value = getShared.getString("str", "walk");
-        String value1 = getShared.getString("str1", "walk1");
-        String value2 = getShared.getString("str2", "walk2");
 
-        textview1.setText(value);
-        textview.setText(value1);
-      dateandtime.setText(value2);
+    }
 
-
-
+    private void processinsert(String d, String s, String e) {
+        String res = new dbmanagerpedo(this).addrecord1(d, s, e);
+        dateandtime.setText("");
+        textviewstepcount.setText("");
+        textview1stepdetect.setText("");
+        Toast.makeText(getApplicationContext(), res, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -112,9 +103,11 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
         if (sensorEvent.sensor == mStepCounter) {
             stepcount = (int) sensorEvent.values[0];
             textviewstepcounter.setText(String.valueOf(stepcount));
+            textviewstepcount.setText(String.valueOf(stepcount));
         } else if (sensorEvent.sensor == mStepDetector) {
             stepdetect = (int) (stepdetect + sensorEvent.values[0]);
             textviewstepdetector.setText(String.valueOf(stepdetect));
+
         }
     }
 
@@ -159,8 +152,8 @@ public class pedometer1 extends AppCompatActivity implements SensorEventListener
         intent.putExtra("saurav2", saurav2);
         startActivity(intent);
        */
-Intent intent = new Intent(this, recordpedometer.class);
-startActivity(intent);
+        Intent intent = new Intent(this, recordpedometer.class);
+        startActivity(intent);
 
     }
 
